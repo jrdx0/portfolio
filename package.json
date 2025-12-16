@@ -6,9 +6,25 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format:check": "prettier --check **/*.{astro,ts,css}",
+    "format:write": "prettier --write **/*.{astro,ts,css}"
   },
   "dependencies": {
-    "astro": "^5.16.5"
+    "@fontsource-variable/jetbrains-mono": "^5.2.8",
+    "@tailwindcss/vite": "^4.1.18",
+    "astro": "^5.16.5",
+    "gsap": "^3.14.2",
+    "prettier": "^3.7.4",
+    "prettier-plugin-astro": "^0.14.1",
+    "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "@iconify-json/fontisto": "^1.2.1",
+    "@iconify-json/hugeicons": "^1.2.20",
+    "@iconify-json/mdi": "^1.2.3",
+    "@types/bun": "^1.3.4",
+    "astro-icon": "^1.1.5",
+    "prettier-plugin-tailwindcss": "^0.7.2"
   }
 }

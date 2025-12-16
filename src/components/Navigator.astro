@@ -1,0 +1,18 @@
+<nav id="navigator" class="flex justify-around">
+  <ul
+    transition:animate="fade"
+    class="flex gap-2 text-sm font-bold text-neutral-950 md:gap-14 md:text-base [&>li]:cursor-pointer [&>li]:rounded-md [&>li]:bg-transparent [&>li]:px-3 [&>li]:py-1.5 [&>li]:transition-colors [&>li]:duration-300 [&>li]:hover:bg-blue-100 [&>li]:active:bg-blue-200"
+  >
+    <li><a href="#me">Me</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#activities">Activities</a></li>
+  </ul>
+</nav>
+
+<script>
+  import { gsap } from 'gsap';
+
+  gsap.from('#navigator', { opacity: 0, duration: 2, delay: 3.5 });
+  gsap.from('#navigator', { y: -30, duration: 1, delay: 3.5 });
+</script>

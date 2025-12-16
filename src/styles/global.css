@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: 'JetBrains Mono Variable', monospace;
+  background-image: radial-gradient(circle, #d4d4d4 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@theme {
+  --shadow-comic: 6px 6px 0px rgba(0, 0, 0, 0.8);
+  --shadow-comic-md: 8px 8px 0px rgba(0, 0, 0, 0.8);
+}

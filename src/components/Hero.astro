@@ -1,0 +1,64 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const socialNetworks = [
+  {
+    name: 'Github',
+    icon: 'mdi:github',
+    url: 'https://github.com/jrdx0',
+    hoverClass: 'hover:text-neutral-900',
+  },
+  {
+    name: 'LinkedIn',
+    icon: 'mdi:linkedin',
+    url: 'https://linkedin.com/in/jared-pena-ochoa',
+    hoverClass: 'hover:text-blue-700',
+  },
+  {
+    name: 'Instagram',
+    icon: 'mdi:instagram',
+    url: 'https://instagram.com/jrdx0.dev',
+    hoverClass: 'hover:text-pink-600',
+  },
+  {
+    name: 'My CV',
+    icon: 'mdi:file-document-outline',
+    url: 'https://1drv.ms/b/c/994aac220daa6052/IQBkCQVaEGPyTq2odJGY3GE4ATJiRa96t-g4_b3Thxcl3WM?e=vrIaeu',
+    hoverClass: 'hover:text-emerald-500',
+  },
+];
+---
+
+<section id="me" class="h-screen w-full">
+  <div
+    class="absolute top-0 z-0 flex h-full w-full flex-col items-center justify-center"
+  >
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-black text-neutral-800 md:text-6xl">
+        <span id="greetings">Hi! I'm</span>
+        <span id="name" class="text-blue-600">Jared</span>
+      </h1>
+      <h2
+        id="title"
+        class="shadow-comic md:shadow-comic-md mx-auto mt-2 w-min bg-orange-500 px-2.5 py-1.5 text-center text-xl font-bold whitespace-nowrap text-neutral-50 md:mt-4 md:px-3 md:py-2 md:text-4xl"
+      >
+        Software Engineer
+      </h2>
+    </div>
+    <ul
+      id="social-networks"
+      class="mt-8 flex flex-row flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-semibold text-neutral-400 md:gap-8 md:gap-y-4 md:text-base [&>li]:transition-colors [&>li]:duration-500 [&>li>a]:flex [&>li>a]:items-center [&>li>a]:justify-center [&>li>a]:gap-1 [&>li>a]:md:gap-2"
+    >
+      {
+        socialNetworks.map((social) => (
+          <li class={social.hoverClass}>
+            <a href={social.url} target="_blank" rel="noopener noreferrer">
+              <Icon name={social.icon} class="h-5 w-5 md:h-7 md:w-7" />
+              {social.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
