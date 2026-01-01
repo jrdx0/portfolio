@@ -1,0 +1,140 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const experiences = [
+  {
+    company: 'Redecom Ingeniería',
+    role: 'Backend Developer',
+    period: '2025 - Present',
+    description: '',
+    technologies: [
+      { name: 'mdi:language-typescript', class: 'hover:text-blue-700' },
+      {
+        name: 'file-icons:nestjs',
+        class: 'hover:text-red-500 w-4! h-4! md:h-5! md:w-5!',
+      },
+      { name: 'mdi:nodejs', class: 'hover:text-green-600' },
+      { name: 'mdi:graphql', class: 'hover:text-pink-600' },
+      { name: 'flowbite:mongo-db-solid', class: 'hover:text-emerald-600' },
+      { name: 'mdi:docker', class: 'hover:text-blue-600' },
+      { name: 'mdi:git', class: 'hover:text-orange-500' },
+    ],
+    color: 'bg-cyan-600',
+  },
+  {
+    company: 'Solucem',
+    role: 'Full Stack Developer',
+    period: '2024 - 2025',
+    technologies: [
+      { name: 'mdi:language-typescript', class: 'hover:text-blue-700' },
+      { name: 'mdi:vuejs', class: 'hover:text-green-700' },
+      { name: 'mdi:tailwind', class: 'hover:text-cyan-500' },
+      {
+        name: 'file-icons:nestjs',
+        class: 'hover:text-red-500 w-4! h-4! md:h-5! md:w-5!',
+      },
+      { name: 'mdi:nodejs', class: 'hover:text-green-600' },
+      { name: 'mdi:graphql', class: 'hover:text-pink-600' },
+      { name: 'flowbite:mongo-db-solid', class: 'hover:text-emerald-600' },
+      { name: 'mdi:docker', class: 'hover:text-blue-600' },
+      { name: 'mdi:git', class: 'hover:text-orange-500' },
+    ],
+    color: 'bg-emerald-600',
+  },
+  {
+    company: 'Honorable Camara de Diputados',
+    role: 'Intern',
+    period: '2023 - 2024',
+    technologies: [
+      { name: 'mdi:language-javascript', class: 'hover:text-yellow-500' },
+      {
+        name: 'devicon-plain:csharp',
+        class: 'hover:text-purple-500 w-4.5! h-4.5! md:w-5! md:h-5!',
+      },
+      { name: 'mdi:angular', class: 'hover:text-red-600' },
+      {
+        name: 'simple-icons:devexpress',
+        class: 'hover:text-orange-400 w-3.5! h-3.5! md:w-4.5! md:h-4.5!',
+      },
+      { name: 'mdi:graphql', class: 'hover:text-pink-600' },
+    ],
+    color: 'bg-rose-600',
+  },
+];
+---
+
+<section
+  id="experience"
+  class="container mx-auto flex min-h-screen flex-col px-8 md:justify-center"
+>
+  <header>
+    <h3
+      class="shadow-comic w-min bg-purple-700 px-3 py-2 text-3xl font-bold whitespace-nowrap text-neutral-50 md:px-3.5 md:py-2.5 md:text-5xl"
+    >
+      Experience
+    </h3>
+    <p class="mt-4 text-sm text-neutral-600 md:text-base">
+      My professional journey and work history...
+    </p>
+  </header>
+
+  <div class="relative mt-10 md:mt-12">
+    <!-- Timeline line -->
+    <div
+      id="experience-line"
+      class="absolute top-0 left-3 h-full w-0.5 bg-neutral-300 md:left-4"
+      aria-hidden="true"
+    >
+    </div>
+
+    <!-- Experience items -->
+    <ul id="experience-timeline" class="space-y-8 md:space-y-10">
+      {
+        experiences.map((exp) => (
+          <li class="relative pl-10 md:pl-14">
+            <div
+              class={`absolute top-0 left-0 flex h-6 w-6 items-center justify-center rounded-full ${exp.color} shadow-comic-sm md:h-8 md:w-8`}
+              aria-hidden="true"
+            >
+              <div class="h-2 w-2 rounded-full bg-white md:h-2.5 md:w-2.5" />
+            </div>
+
+            <article class="group">
+              <div class="flex flex-col gap-1 md:flex-row md:items-baseline md:gap-3">
+                <h4 class="text-2xl font-bold text-neutral-800 md:text-3xl">
+                  {exp.role}
+                </h4>
+                <span class="text-sm font-semibold text-neutral-500 md:text-base">
+                  @ {exp.company}
+                </span>
+              </div>
+
+              <p class="mt-1 text-xs font-semibold text-neutral-400 md:text-sm">
+                <Icon
+                  name="mdi:calendar-range"
+                  class="mr-1 inline h-3 w-3 md:h-4 md:w-4"
+                />
+                {exp.period}
+              </p>
+
+              <p class="mt-3 text-sm text-neutral-600 md:mt-4 md:text-base">
+                {exp.description}
+              </p>
+
+              <ul class="mt-3 flex items-center gap-3 text-neutral-400 md:mt-4">
+                {exp.technologies.map((tech) => (
+                  <li>
+                    <Icon
+                      name={tech.name}
+                      class={`h-5 w-5 transition-colors duration-500 md:h-6 md:w-6 ${tech.class}`}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

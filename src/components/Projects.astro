@@ -1,5 +1,26 @@
 ---
 import { Icon } from 'astro-icon/components';
+
+const mainProject = {
+  title: 'Claude tray utility',
+  description:
+    'A Linux system tray application for monitoring Claude AI usage, built with Rust',
+  repositoryLink: 'https://github.com/jrdx0/claude-tray',
+  mainIcon: {
+    name: 'hugeicons:claude',
+    class: 'text-orange-500',
+  },
+  stackIcons: [
+    {
+      name: 'mdi:language-rust',
+      class: 'hover:text-amber-600',
+    },
+    {
+      name: 'fontisto:linux',
+      class: 'hover:text-neutral-900 ',
+    },
+  ],
+};
 ---
 
 <section
@@ -16,37 +37,37 @@ import { Icon } from 'astro-icon/components';
       Here are some of my recent projects...
     </p>
   </header>
+  <!-- Projects list -->
   <section class="mt-10 md:mt-12">
+    <!-- Main project -->
     <article class="w-56 md:w-64">
       <Icon
-        name="hugeicons:claude"
-        class="h-12 w-12 text-neutral-800 md:h-14 md:w-14"
+        name={mainProject.mainIcon.name}
+        class={`h-12 w-12 md:h-14 md:w-14 ${mainProject.mainIcon.class}`}
       />
       <h4 class="mt-3 text-4xl font-bold text-neutral-800 md:mt-4 md:text-5xl">
-        Claude tray utility
+        {mainProject.title}
       </h4>
       <ul
         class="mt-3 flex items-center justify-start gap-3 text-neutral-400 md:mt-4"
       >
-        <li>
-          <Icon
-            name="mdi:language-rust"
-            class="h-5 w-5 transition-colors duration-500 hover:text-amber-600 md:h-6 md:w-6"
-          />
-        </li>
-        <li>
-          <Icon
-            name="fontisto:linux"
-            class="h-5 w-5 transition-colors duration-500 hover:text-neutral-900 md:h-6 md:w-6"
-          />
-        </li>
+        {
+          mainProject.stackIcons.map((icon) => (
+            <li>
+              <Icon
+                name={icon.name}
+                class={`h-5 w-5 transition-colors duration-500 md:h-6 md:w-6 ${icon.class}`}
+              />
+            </li>
+          ))
+        }
       </ul>
       <p class="mt-3 text-neutral-500 md:mt-4 md:text-lg">
-        A Linux system tray application for monitoring Claude AI usage, built
-        with Rust
+        {mainProject.description}
       </p>
       <a
-        href="https://github.com/jrdx0/claude-tray"
+        href={mainProject.repositoryLink}
+        target="_blank"
         class="mt-3 flex items-center text-sm font-bold text-neutral-500 transition-colors duration-500 hover:text-neutral-700 md:mt-4 md:text-base"
       >
         <Icon name="mdi:source-repository" class="mr-1 md:mr-2 md:h-5 md:w-5" />

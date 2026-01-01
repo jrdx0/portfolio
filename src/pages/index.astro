@@ -3,15 +3,17 @@ import Hero from '../components/Hero.astro';
 import Projects from '../components/Projects.astro';
 import Layout from '../layouts/Layout.astro';
 import Navigator from '../components/Navigator.astro';
+import Experience from '../components/Experience.astro';
 ---
 
 <Layout>
-  <header class="sticky top-0 z-10 container mx-auto py-6">
+  <header id="header" class="fixed top-0 z-10 w-full py-6">
     <Navigator />
   </header>
   <main>
     <Hero />
     <Projects />
+    <Experience />
   </main>
 </Layout>
 
@@ -21,22 +23,34 @@ import Navigator from '../components/Navigator.astro';
 
   gsap.registerPlugin(ScrollTrigger);
 
-  document.body.style.overflow = 'hidden';
-
-  const tl = gsap.timeline({
+  const tlHero = gsap.timeline({
     defaults: { ease: 'power2.out' },
-    onComplete: () => {
-      document.body.style.overflow = '';
+    scrollTrigger: {
+      trigger: '#me',
+      start: 'top 80%',
+      end: 'top 50%',
+      toggleActions: 'play none none reverse',
     },
   });
 
-  tl.from('#greetings', {
-    x: -100,
-    opacity: 0,
-    duration: 1,
-    display: 'inline-block',
-    delay: 0.5,
-  })
+  const tlExperience = gsap.timeline({
+    defaults: { ease: 'power2.out' },
+    scrollTrigger: {
+      trigger: '#experience',
+      start: 'top 80%',
+      end: 'top 50%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  tlHero
+    .from('#greetings', {
+      x: -100,
+      opacity: 0,
+      duration: 1,
+      display: 'inline-block',
+      delay: 0.5,
+    })
     .from('#name', {
       opacity: 0,
       duration: 1,
@@ -63,4 +77,20 @@ import Navigator from '../components/Navigator.astro';
       toggleActions: 'play none none reverse',
     },
   });
+
+  tlExperience
+    .from('#experience header', {
+      opacity: 0,
+      duration: 1,
+    })
+    .from('#experience-timeline > li', {
+      opacity: 0,
+      x: -100,
+      duration: 1,
+      stagger: 0.5,
+    })
+    .from('#experience-line', {
+      opacity: 0,
+      duration: 1,
+    });
 </script>

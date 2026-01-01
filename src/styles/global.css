@@ -12,6 +12,7 @@ body {
 }
 
 @theme {
+  --shadow-comic-sm: 4px 4px 0px rgba(0, 0, 0, 0.8);
   --shadow-comic: 6px 6px 0px rgba(0, 0, 0, 0.8);
   --shadow-comic-md: 8px 8px 0px rgba(0, 0, 0, 0.8);
 }
